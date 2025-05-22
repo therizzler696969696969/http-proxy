@@ -3,7 +3,7 @@ addEventListener("fetch", event => {
 });
 
 async function handleRequest(request) {
-  const url = new URL(https://dash.cloudflare.com/c830e30ffea24c8a697cd3b0d14ef380/workers/services/view/http-proxy/production/settings);
+  const url = new URL dream.casarosalba.com);
   const target = url.searchParams.get("url");
 
   if (!target) {
