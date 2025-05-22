@@ -1,22 +1,23 @@
-# http-proxy async function handleRequest(request) {
-  const { method } = request;
+addEventListener("fetch", event => {
+  event.respondWith(handleRequest(event.request));
+});
+
+async function handleRequest(request) {
   const url = new URL(request.url);
   const target = url.searchParams.get("url");
 
   if (!target) {
     return new Response("Missing 'url' query parameter", {
       status: 400,
-      headers: { "Content-Type": "text/plain" }
+      headers: {
+        "Content-Type": "text/plain",
+        "Access-Control-Allow-Origin": "*"
+      }
     });
   }
 
   try {
-    const fetchResponse = await fetch(target, {
-      method: "GET", 
-      headers: {
-       
-      }
-    });
+    const fetchResponse = await fetch(target);
 
     const responseHeaders = new Headers(fetchResponse.headers);
     responseHeaders.set("Access-Control-Allow-Origin", "*");
@@ -29,11 +30,13 @@
       status: fetchResponse.status,
       headers: responseHeaders
     });
-
   } catch (error) {
     return new Response("Error fetching target URL: " + error.toString(), {
       status: 500,
-      headers: { "Content-Type": "text/plain" }
+      headers: {
+        "Content-Type": "text/plain",
+        "Access-Control-Allow-Origin": "*"
+      }
     });
   }
 }
