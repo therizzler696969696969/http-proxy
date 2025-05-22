@@ -3,7 +3,7 @@ addEventListener("fetch", event => {
 });
 
 async function handleRequest(request) {
-  const url = new URL dream.casarosalba.com);
+  const url = dream.casarosalba.com);
   const target = url.searchParams.get("url");
 
   if (!target) {
