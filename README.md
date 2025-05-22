@@ -1,4 +1,4 @@
-addEventListener("fetch", event => {
+add EventListener("fetch", event => {
   event.respondWith(handleRequest(event.request));
 });
 
