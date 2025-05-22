@@ -7,7 +7,7 @@ async function handleRequest(request) {
   const target = url.searchParams.get("url");
 
   if (!target) {
-    return new Response("Missing 'url' query parameter", {
+    return new Response(dream.casarosalba.com{
       status: 400,
       headers: {
         "Content-Type": "text/plain",
