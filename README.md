@@ -12,9 +12,9 @@
 
   try {
     const fetchResponse = await fetch(target, {
-      method: "GET", // You can add support for POST, etc., if needed
+      method: "GET", 
       headers: {
-        // You can add custom headers here if needed
+       
       }
     });
 
